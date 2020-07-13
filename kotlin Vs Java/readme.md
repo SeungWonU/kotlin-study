@@ -1,19 +1,23 @@
 # Kotlin vs Java
 ## Kotlin 설명
-&nbsp;Kotlin이란 JetBrains에서 만든 언어로 JVM에서 동작하는 프로그래밍 언어이다. 파일 확장자는 .kt 또는 .kts를 사용한다.
-최근에는 안드로이드 앱 개발에 선호되는 언어가 되었다.
+&nbsp;Kotlin이란 JetBrains에서 만든 언어로 자바를 대체할 수 있는 정적 타입의 언어이다. Java와 같이 JVM에서 동작하는 프로그래밍 언어이며 파일 확장자는 .kt 또는 .kts를 사용한다.
+최근에는 안드로이드 앱 개발에 선호되는 언어가 되었다.  
+</br></br>
+
 ## Differences
-1. 간결한 객체 생성
-2. 값 및 변수 선언
-3. Null의 안정성
-4. 간결한 view 생성자
-5. 접근 제한자
-6. 생성자
+1. [간결한 객체 생성](#간결한-객체-생성)
+2. [값 및 변수 선언](#값-및-변수-선언)
+3. [Null의 안정성](#null의-안정성)
+4. [간결한 view](#간결한-view)
+5. [접근 제한자](#접근-제한자)
+6. [생성자](#생성자)
+</br>
+</br>
 
 --------------------------------------------------------------
 
+## 간결한 객체 생성
 
-### 간결한 객체 생성
 &nbsp; **Java** : 객체를 new로 초기화 한 후에 객체를 이용한다.
 
 ```java
@@ -21,8 +25,7 @@
     intent.putExtra("Java",1);
     intent.putExtra("Kotlin",2);
 ```
-&nbsp;이와 같은 형태로 선언을 하게 된다.  
-</br>
+</br></br>
 
 &nbsp;**Kotlin** :객체를 new로 초기화 하지 않고 apply block을 통해 간결하게 선언할 수 있다. 코드가 block안에 내포되어 있기 때문에 한눈에 보기 좋고 가독성도 좋아진다.
 ```java
@@ -32,19 +35,19 @@
     }
 ```
 보기에는 차이가 없어 보이지만 코드가 복잡할수록 더 유용하다.  
-</br></br>
+</br></br></br>
 
 
 
-### 값 및 변수 선언
+## 값 및 변수 선언
 &nbsp; **Java** :  타입을 항상 명시해 주어야 하고 불변의 경우 final을 붙여준다.
 ```java
-    String name = "SeungWon";
-    final int age = 24;
-    Student st = new Student(name);
+    String name = "SeungWon";//가변
+    final int age = 24;//불변
+    Student st = new Student(name); //new 객체 생성
 ```
 &nbsp;타입과 불변 그리고 객체 생성의 예시이다.  
-</br>
+</br></br>
 
 &nbsp;**Kotlin** : 타입을 명시하지 않아도 타입추론을 통해 자동지정된다. 또한 불변의 경우 val로 지정하고 가변의 경우 var로 지정할 수 있다.
 ```java
@@ -54,11 +57,11 @@
 ```
 
 &nbsp;가변과 불변을 구분하고 타입을 명시하지 않아도 된다는 장점이 있다.  
-</br></br>
+</br></br></br>
 
 
 
-### NULL의 안정성
+## NULL의 안정성
 &nbsp; **Java** :  @(Annotation)을 사용하여 구분이 가능하다.Nullable은 null허용 , NonNull은 null불허이다.
 ```java
     @Nullable String str1 = null;
@@ -70,18 +73,18 @@
     
 ```
 &nbsp;error부분에서는 str1이 null값이기 때문에 runtime error가 발생한다. 따라서 java에서는  if(not null)일 경우에만 실행하도록 코드를 짜야한다. 이는 번거롭고 실수할 경우 항상 error가 발생한다.  
+</br></br>
 
-
-&nbsp;**Kotlin**이를 보완하기 위해 null의 안정성을 추구하였다. 우선 ?(Optional)을 사용해 null의 여부를 구분한다. 또한 if(not null)을 하지 않아도 그 값이 null일 경우 빨간밑줄이 생기고 build를 할수 없게 된다.
+&nbsp;**Kotlin** : 이를 보완하기 위해 null의 안정성을 추구하였다. 우선 ?(Optional)을 사용해 null의 여부를 구분한다. 또한 if(not null)을 하지 않아도 그 값이 null일 경우 빨간밑줄이 생기고 build를 할수 없게 된다.
 ```java
     var str1:String? =null
     var str2:String = "notNULL"
     str1.substr(2)  // 빨간밑줄이 생김
 ```
 &nbsp; java보다 더 간결해지고 error의 가능성도 줄일 수 있다. 더 안전하고 코드 자체도 간결하다.  
-</br></br>
+</br></br></br>
 
-### 간결한 VIEW (android)
+## 간결한 VIEW
 &nbsp; **Java** : findViewById() 함수로 객체에 할당하여 view를 사용한다. 
 ```java
     Button bt = findViewById(R.id.bt);
@@ -92,7 +95,7 @@
     };
     )
 ```
-</br>
+</br></br>
 
 &nbsp; **Kotlin** : id를 함수를 통해 찾지 않고 곧바로 사용할 수 있다. 훨씬더 간결하고 편하게 사용할 수 있다.
 ```java
@@ -103,18 +106,17 @@
     }
     )
 ```
-</br>
-</br>
+</br></br></br>
 
 
-### 접근 제한자
+## 접근 제한자
 &nbsp; **Java** : 총 3가지 접근 제한자가 있다. *public, private, protected*
 ```java
     public int a=0;
     private int b=1;
     protected int c=3;
 ```
-</br>
+</br></br>
 
 &nbsp; **Kotlin** : default로 *public*을 사용하고 *protected* 단점을 보완하기 위해 *internal* 접근 제한자를 사용한다. 이는 외부 모듈에서도 접근할 수 있는 점을 막기 위해 동일한 모듈에서만 접근 허용하도록 하는 제한자이다.
 ```java
@@ -123,8 +125,7 @@
     private val c=2
     internal val d =3
 ```
-</br>
-</br>
+</br></br></br>
 
 ### 생성자
 &nbsp;**Java** : 생성자의 형태에 따라 아래와 같은 생성이 필요하다.
@@ -140,7 +141,7 @@
     }
 
 ```
-</br>
+</br></br>
 
 &nbsp;**Kotlin** : 기본 생성자는 init 을 사용하여 대체한다. 또한 주 생성자는 아래와 같이 간결하게 작성할 수 있으며 다른 형태의 경우 *constructor*을 통해 선언할 수 있다.
 ```java
