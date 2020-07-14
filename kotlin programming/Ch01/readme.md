@@ -1,8 +1,9 @@
-## 1. 코틀린 시작
+## 1. 코틀린 시작  
+
 > 변수 선언(var,val)  
 
 &nbsp; var은 언제든지 읽기,쓰기가 가능하여 가변적이고 val은 선언시에만 초기화가 가능하며 중간에는 값을 변경할 수 없다.
-</br></br>
+</br></br></br>
 
 
 > null 값  
@@ -15,7 +16,7 @@
 ```java
     var a:Int? = null // null을 사용하고 싶으면  nullAble 형태로 변경 가능
 ```
-</br></br>
+</br></br></br>
 
 > 기본 자료형( 자바와 거의 동일)
 
@@ -30,7 +31,7 @@
     var doubleValueWithExp:Double = 123.4e10
     var floatValue:Float = 123.5f //float형
 ```
-</br></br>
+</br></br></br>
 
 > 문자형(char) & *boolean* 값
 
@@ -69,7 +70,7 @@
 
 **명시적 형변환**이란 변환될 자료형을 직접 지정하는 것이다.  
 **암시적 형변환**은 변수를 할당할 시 자동으로 형변환이 이루어 지는 것을 말한다.
-</br></br>
+</br></br></br>
 
 > 배열(array)
 
@@ -85,7 +86,7 @@
 &nbsp;배열의 단점: 전체크기를 변경할 수 없다.  
 &nbsp;배열의 장점 : 다른 자료구조보다 빠른 입출력이 가능하다.
 
-</br></br>
+</br></br></br>
 
 > 타입추론(type inference)
 
@@ -105,7 +106,7 @@
         var h = 'char'  //char
     }
 ```
-
+</br></br></br>
 > 함수(function)
 
 &nbsp;원하는 결과값을 연산하는데 사용한다. 
@@ -123,7 +124,7 @@
     fun add(a: Int,b: Int,c: Int) = a+b+c;
     //단일 추론에서는 반환형의 타입을 생략할 수 있다!!
 ```
-</br></br>
+</br></br></br>
 
 > 다중 조건문(when)
 
@@ -170,3 +171,39 @@ String 타입이 아닙니다
 결과 값:  
 1입니다  
 String 입니다  
+</br></br></br>
+
+> 반복문(for)  
+
+&nbsp;인덱스로 사용할 변수에는 var/val을 붙이지 않아도 된다.  반복의 구간은 *in num1..num2* 이와 같은 형태로 작성하면 된다.  
+감소연산자의 경우에는 ..대신 *down to*를 사용하면 된다. 또한 default값으로 1씩 증가시키며 반복하는데 변경하고 싶다면 *step*을 쓰면 된다.
+```java
+    fun main(){
+        for(i in 0..9 set 3)
+            print(i) // 숫자 0~9까지 3씩 증가된 값 출력
+    }
+```
+```java
+    fun main(){
+        for(i in 'e' down to 'a')
+            print(i) // 문자 'e'부터 'a'까지 역순으로 출력
+    }
+```
+</br></br></br>
+
+> 흐름제어(label)  
+
+&nbsp;다중 반복문에서 break 나 continue가 적용되는 반복문을 label로 제어하는 기능을 코드를 통해 살펴보자.
+```java
+    //@*label이름* 을 통해 제어 가능
+    loop@fun main(){
+        for(i in 1..10)
+            for(j in 1..10){
+                if(i==3 && j==4)break@loop
+                println("i : %i, j : $j") //" "안에서 변수를 출력할때 $를 붙여주면 변수를 출력가능
+            }
+    }
+```
+기존 언어들에서는 break나 continue를 통해 하나의 반복문만 나올수 있다.  
+예를 들어 3개의 반복문을 전부 탈출하고자 하면 총 3개의 break문을 통해 빠져 나올 수 있지만 label은 원하는 위치로 나올 수가 있다.
+
