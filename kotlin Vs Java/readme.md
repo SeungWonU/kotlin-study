@@ -118,7 +118,7 @@
 ```
 </br></br>
 
-&nbsp; **Kotlin** : default로 *public*을 사용하고 *protected* 단점을 보완하기 위해 *internal* 접근 제한자를 사용한다. 이는 외부 모듈에서도 접근할 수 있는 점을 막기 위해 동일한 모듈에서만 접근 허용하도록 하는 제한자이다.
+&nbsp; **Kotlin** : default로 *public*을 사용하고 package scope에서 같은 모듈내에서만 사용하고 싶을 때*internal* 접근 제한자를 사용한다.
 ```java
     val a=0  //default 는 public
     protected val b=1
